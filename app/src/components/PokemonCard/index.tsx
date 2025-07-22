@@ -19,7 +19,7 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         </div>
         <div className="image-container">
           <img
-            src={pokemon.sprites.other.showdown.back_default}
+            src={pokemon.sprites.back_default}
             alt="Back Default"
             className="pokemon-sprite"
           />
@@ -27,7 +27,7 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         </div>
         <div className="image-container">
           <img
-            src={pokemon.sprites.other.showdown.front_shiny}
+            src={pokemon.sprites.front_shiny}
             alt="Front Shiny"
             className="pokemon-sprite"
           />
@@ -35,7 +35,7 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         </div>
         <div className="image-container">
           <img
-            src={pokemon.sprites.other.showdown.back_shiny}
+            src={pokemon.sprites.back_shiny}
             alt="Back Shiny"
             className="pokemon-sprite"
           />
