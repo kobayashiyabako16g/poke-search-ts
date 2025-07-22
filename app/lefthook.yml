@@ -1,0 +1,10 @@
+pre-push:
+  parallel: true
+pre-commit:
+  jobs:
+    - name: app project
+      root: app/
+      group:
+        jobs:
+          - run: npm run lint {staged_files}
+            glob: "*.{js,ts,jsx,tsx,json,jsonc}"

@@ -5,6 +5,54 @@
       "last_modified": "2025-07-18T12:29:53Z",
       "resolved": "github:NixOS/nixpkgs/8131c0ea9df6293a247be743a387ff725e464db7?lastModified=1752841793&narHash=sha256-pGvcN%2FyiJ4e3%2FhgvTwkyZvl6c3HuLLCY%2FhjEzDuQB54%3D"
     },
+    "lefthook@latest": {
+      "last_modified": "2025-07-13T22:45:35Z",
+      "resolved": "github:NixOS/nixpkgs/a421ac6595024edcfbb1ef950a3712b89161c359#lefthook",
+      "source": "devbox-search",
+      "version": "1.11.15",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2irf3ik9j41gk9gc6dz2dnqp2pkgvw8f-lefthook-1.11.15",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/2irf3ik9j41gk9gc6dz2dnqp2pkgvw8f-lefthook-1.11.15"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zdr9kjbzday66r2awx37glrbnqhk8z0x-lefthook-1.11.15",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/zdr9kjbzday66r2awx37glrbnqhk8z0x-lefthook-1.11.15"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3jjl86h1l9kq168wwa0r98557hc5wjaj-lefthook-1.11.15",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3jjl86h1l9kq168wwa0r98557hc5wjaj-lefthook-1.11.15"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/n1lbb50m39c26jlzicbr7q89xymljqsr-lefthook-1.11.15",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/n1lbb50m39c26jlzicbr7q89xymljqsr-lefthook-1.11.15"
+        }
+      }
+    },
     "nodejs@23": {
       "last_modified": "2025-05-04T22:22:57Z",
       "plugin_version": "0.0.2",
