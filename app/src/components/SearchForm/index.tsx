@@ -1,13 +1,25 @@
+import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
 import { fetchPokemonById } from "../../api/pokemonApi";
-import "./style.css";
+import type { Pokemon, SearchType } from "../../types/pokemon";
 import PokemonCard from "../PokemonCard";
+import "./style.css";
 
-const SearchForm = () => {
-  const [pokemon, setPokemon] = useState(null);
+type SearchFormProps = {
+  searchTerm: string;
+  searchType: SearchType;
+  onSearchTermChange: (term: string) => void;
+};
+
+const SearchForm = ({
+  searchTerm,
+  searchType,
+  onSearchTermChange,
+}: SearchFormProps) => {
+  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
   // フォーム送信時の処理
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // デフォルトの送信動作を防止
     try {
       // 検索タイプに応じてAPIを呼び分け（後で実装）
@@ -21,10 +33,24 @@ const SearchForm = () => {
     }
   };
 
+  const handleTermChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onSearchTermChange(e.target.value);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit} className="search-form">
-        <input type="text" placeholder="Enter ID or Name" />
+        <input
+          type={searchType === "id" ? "number" : "text"}
+          placeholder={
+            searchType === "name"
+              ? "Enter name (e.g. pikachu)"
+              : "Enter ID (e.g. 25)"
+          }
+          value={searchTerm}
+          onChange={handleTermChange}
+          min={searchType === "id" ? 1 : undefined}
+        />
         <button type="submit">Search</button>
       </form>
       {pokemon && <PokemonCard pokemon={pokemon} />}

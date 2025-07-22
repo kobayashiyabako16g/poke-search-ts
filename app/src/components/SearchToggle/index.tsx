@@ -16,7 +16,11 @@ const SearchToggle = ({ searchType, onTypeChange }: SearchToggleProps) => {
       >
         Search by Name
       </button>
-      <button type="button" className="id">
+      <button
+        type="button"
+        className={`id ${searchType === "id" ? "active" : ""}`}
+        onClick={() => onTypeChange("id")}
+      >
         Search by ID
       </button>
     </div>
