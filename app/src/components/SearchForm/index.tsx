@@ -9,12 +9,14 @@ type SearchFormProps = {
   searchTerm: string;
   searchType: SearchType;
   onSearchTermChange: (term: string) => void;
+  onSubmit: (e: FormEvent) => void;
 };
 
 const SearchForm = ({
   searchTerm,
   searchType,
   onSearchTermChange,
+  onSubmit,
 }: SearchFormProps) => {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
@@ -43,7 +45,7 @@ const SearchForm = ({
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="search-form">
+      <form onSubmit={onSubmit} className="search-form">
         <input
           type={searchType === "id" ? "number" : "text"}
           placeholder={
