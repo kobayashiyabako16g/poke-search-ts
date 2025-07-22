@@ -1,6 +1,11 @@
+import type { Pokemon } from "../../types/pokemon";
 import "./style.css";
 
-const PokemonCard = ({ pokemon }) => {
+type PokemonCardProps = {
+  pokemon: Pokemon;
+};
+
+const PokemonCard = ({ pokemon }: PokemonCardProps) => {
   return (
     <div className="pokemon-card">
       <div className="pokemon-image-grid">
