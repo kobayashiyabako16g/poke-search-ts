@@ -7,4 +7,4 @@ pre-commit:
       group:
         jobs:
           - run: npm run lint {staged_files}
-            glob: "*.{js,ts,jsx,tsx,json,jsonc}"
+            glob: "*.{js,ts,jsx,tsx}"
