@@ -7,16 +7,19 @@ type UsePokemonSearchReturn = {
   error: string | null;
   searchPokemon: (query: string, type: SearchType) => Promise<void>;
   clearResults: () => void;
+  isLoading: boolean;
 };
 
 export const usePokemonSearch = (): UsePokemonSearchReturn => {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const searchPokemon = useCallback(
     async (query: string, type: SearchType): Promise<void> => {
       clearResults();
       try {
+        setIsLoading(true);
         const result =
           type === "id"
             ? await fetchPokemonById(query)
@@ -26,6 +29,8 @@ export const usePokemonSearch = (): UsePokemonSearchReturn => {
       } catch (error) {
         setError(error.message || "ポケモンが見つかりませんでした");
         return null;
+      } finally {
+        setIsLoading(false);
       }
     },
     [],
@@ -39,6 +44,7 @@ export const usePokemonSearch = (): UsePokemonSearchReturn => {
   return {
     pokemon,
     error,
+    isLoading,
     searchPokemon,
     clearResults,
   };

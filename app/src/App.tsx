@@ -10,7 +10,8 @@ import type { SearchType } from "./types/pokemon";
 function App() {
   const [searchType, setSearchType] = useState<SearchType>("name");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { pokemon, error, searchPokemon, clearResults } = usePokemonSearch();
+  const { pokemon, error, isLoading, searchPokemon, clearResults } =
+    usePokemonSearch();
 
   // フォーム送信ハンドラ
   const handleSubmit = async (e: FormEvent) => {
@@ -38,11 +39,12 @@ function App() {
       <SearchForm
         searchType={searchType}
         searchTerm={searchTerm}
+        isLoading={isLoading}
         onSearchTermChange={setSearchTerm}
         onSubmit={handleSubmit}
       />
       {error && <div className="error-message">{error}</div>}
-      {pokemon && <PokemonCard pokemon={pokemon} />}
+      {pokemon && !isLoading && <PokemonCard pokemon={pokemon} />}
     </>
   );
 }
