@@ -26,9 +26,9 @@ export const usePokemonSearch = (): UsePokemonSearchReturn => {
             : await fetchPokemonByName(query);
 
         setPokemon(result);
-      } catch (error) {
+      } catch (error: any) {
         setError(error.message || "ポケモンが見つかりませんでした");
-        return null;
+        return;
       } finally {
         setIsLoading(false);
       }
