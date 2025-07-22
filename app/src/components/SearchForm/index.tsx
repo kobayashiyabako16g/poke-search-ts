@@ -1,6 +1,6 @@
 import type { ChangeEvent, FormEvent } from "react";
 import { useState } from "react";
-import { fetchPokemonById } from "../../api/pokemonApi";
+import { fetchPokemonById, fetchPokemonByName } from "../../api/pokemonApi";
 import type { Pokemon, SearchType } from "../../types/pokemon";
 import PokemonCard from "../PokemonCard";
 import "./style.css";
@@ -22,8 +22,12 @@ const SearchForm = ({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // デフォルトの送信動作を防止
     try {
-      // 検索タイプに応じてAPIを呼び分け（後で実装）
-      const result = await fetchPokemonById(e.target[0].value);
+      // 検索タイプに応じてAPIを呼び分け
+      const searchKey = e.target[0].value;
+      const result =
+        searchType === "id"
+          ? await fetchPokemonById(searchKey)
+          : await fetchPokemonByName(searchKey);
       setPokemon(result);
       // データの構造を確認
       console.log("ID:", result.id);
