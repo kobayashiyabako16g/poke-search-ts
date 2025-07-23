@@ -24,3 +24,8 @@ export type Pokemon = {
 };
 
 export type SearchType = "name" | "id";
+
+export type AppError = {
+  message: string;
+  status: number;
+};
