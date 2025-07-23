@@ -4,6 +4,7 @@ import "./App.css";
 import PokemonCard from "./components/PokemonCard";
 import SearchForm from "./components/SearchForm";
 import SearchToggle from "./components/SearchToggle";
+import SkeletonLoader from "./components/SkeletonLoader";
 import { usePokemonSearch } from "./hooks/usePokemonSearch";
 import type { SearchType } from "./types/pokemon";
 
@@ -44,6 +45,7 @@ function App() {
         onSubmit={handleSubmit}
       />
       {error && <div className="error-message">{error}</div>}
+      {isLoading && <SkeletonLoader />}
       {pokemon && !isLoading && <PokemonCard pokemon={pokemon} />}
     </>
   );
