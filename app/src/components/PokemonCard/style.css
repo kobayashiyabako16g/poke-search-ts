@@ -118,3 +118,59 @@
   font-weight: bold;
   margin-right: 8px;
 }
+
+@media (max-width: 768px) {
+  .pokemon-sprite {
+    max-width: 80px;
+  }
+
+  .sprite-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .pokemon-card,
+  .skeleton-card {
+    flex-direction: column;
+  }
+
+  .pokemon-image-grid {
+    flex: 0 0 auto;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .pokemon-id {
+    font-size: 1.2rem;
+  }
+
+  .type-badge {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .detail-item {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .pokemon-image-grid {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .image-container {
+    padding: 8px;
+  }
+
+  .sprite-label {
+    font-size: 0.6rem;
+  }
+
+  .pokemon-info {
+    padding: 1rem;
+  }
+}

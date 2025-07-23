@@ -50,3 +50,15 @@
   background-color: #e38f7a;
   cursor: not-allowed; /* マウスポインタも無効に */
 }
+
+@media (max-width: 768px) {
+  .search-form input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .search-form button {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
