@@ -1,4 +1,5 @@
 import type { Pokemon } from "../../types/pokemon";
+import { typeColors } from "../../utils/typeColors";
 import "./style.css";
 
 type PokemonCardProps = {
@@ -46,8 +47,14 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         <h2>{pokemon.name}</h2>
         <p className="pokemon-id">#{pokemon.id}</p>
         <div className="pokemon-types">
-          {pokemon.types.map((typeInfo, index) => (
-            <span key={index} className="type-badge">
+          {pokemon.types.map((typeInfo) => (
+            <span
+              key={typeInfo.type.name}
+              className="type-badge"
+              style={{
+                backgroundColor: typeColors[typeInfo.type.name] || "#68A090",
+              }}
+            >
               {typeInfo.type.name}
             </span>
           ))}
