@@ -44,7 +44,9 @@ function App() {
         onSearchTermChange={setSearchTerm}
         onSubmit={handleSubmit}
       />
-      {error && <div className="error-message">{error}</div>}
+      {error && (
+        <div className="error-message">{`${error.status} : ${error.message}`}</div>
+      )}
       {isLoading && <SkeletonLoader />}
       {pokemon && !isLoading && <PokemonCard pokemon={pokemon} />}
     </>
