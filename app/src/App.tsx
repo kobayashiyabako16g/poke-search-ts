@@ -1,6 +1,7 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
 import "./App.css";
+import Header from "./components/Header";
 import PokemonCard from "./components/PokemonCard";
 import SearchForm from "./components/SearchForm";
 import SearchToggle from "./components/SearchToggle";
@@ -32,24 +33,36 @@ function App() {
     clearResults();
   };
 
+  const links = [
+    { label: "search", url: "/" },
+    { label: "doc", url: "https://pokeapi.co/docs/v2" },
+  ];
   return (
-    <div className="app">
-      <h1>Poké Search</h1>
-      <p className="description">Search for a Pokémon by name or ID</p>
-      <SearchToggle searchType={searchType} onTypeChange={handleTypeChange} />
-      <SearchForm
-        searchType={searchType}
-        searchTerm={searchTerm}
-        isLoading={isLoading}
-        onSearchTermChange={setSearchTerm}
-        onSubmit={handleSubmit}
-      />
-      {error && (
-        <div className="error-message">{`${error.status} : ${error.message}`}</div>
-      )}
-      {isLoading && <SkeletonLoader />}
-      {pokemon && !isLoading && <PokemonCard pokemon={pokemon} />}
-    </div>
+    <>
+      <Header title="Pokemon Search" links={links} />
+      <main className="main">
+        <div className="app">
+          <h1>Poké Search</h1>
+          <p className="description">Search for a Pokémon by name or ID</p>
+          <SearchToggle
+            searchType={searchType}
+            onTypeChange={handleTypeChange}
+          />
+          <SearchForm
+            searchType={searchType}
+            searchTerm={searchTerm}
+            isLoading={isLoading}
+            onSearchTermChange={setSearchTerm}
+            onSubmit={handleSubmit}
+          />
+          {error && (
+            <div className="error-message">{`${error.status} : ${error.message}`}</div>
+          )}
+          {isLoading && <SkeletonLoader />}
+          {pokemon && !isLoading && <PokemonCard pokemon={pokemon} />}
+        </div>
+      </main>
+    </>
   );
 }
 
