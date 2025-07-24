@@ -1,5 +1,5 @@
 import "./style.css";
-import type { SearchType } from "../../types/pokemon";
+import type { SearchType } from "@/types/pokemon";
 
 type SearchToggleProps = {
   searchType: SearchType;

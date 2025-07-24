@@ -1,5 +1,5 @@
-import type { Pokemon } from "../../types/pokemon";
-import { typeColors } from "../../utils/typeColors";
+import type { Pokemon } from "@/types/pokemon";
+import { typeColors } from "@/utils/typeColors";
 import "./style.css";
 
 type PokemonCardProps = {

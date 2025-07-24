@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import type { AppError, Pokemon, SearchType } from "../types/pokemon";
+import type { AppError, Pokemon, SearchType } from "@/types/pokemon";
 
 type ValidationResult = {
   isValid: boolean;

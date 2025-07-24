@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
-import { fetchPokemon } from "../api/pokemonApi";
-import type { AppError, Pokemon, SearchType } from "../types/pokemon";
+import { fetchPokemon } from "@/api/pokemonApi";
+import type { AppError, Pokemon, SearchType } from "@/types/pokemon";
 
 type UsePokemonSearchReturn = {
   pokemon: Pokemon | null;

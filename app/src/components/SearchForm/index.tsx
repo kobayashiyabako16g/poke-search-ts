@@ -1,5 +1,5 @@
 import type { ChangeEvent, FormEvent } from "react";
-import type { SearchType } from "../../types/pokemon";
+import type { SearchType } from "@/types/pokemon";
 import "./style.css";
 
 type SearchFormProps = {
